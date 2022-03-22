@@ -10,7 +10,6 @@ export const App: React.FC = () => {
   return (
     <div className={s.app}>
       <Router>
-        <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/counter" element={<CounterPage />} />
