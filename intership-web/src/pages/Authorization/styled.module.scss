@@ -1,0 +1,70 @@
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #e2f9ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    img {
+        width: 90px;
+        margin-top: auto;
+    }
+    h1 {
+        font-weight: 500;
+        font-size: 28px;     
+    }
+    .login {
+        width: 269px;
+        height: 45px;
+        border: 1px solid #E6E6E6;
+        border-radius: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-weight: 400;
+        font-size: 16px;
+    }
+    .remember {
+        font-weight: 400;
+        font-size: 16px;
+        width: 125px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        input {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+        }
+
+    }
+    .remember:hover, .remember input:hover {
+        cursor: pointer;
+    }
+    .sign {
+        background: #0085F9;
+        width: 299px;
+        height: 48px;
+        border-radius: 5px;
+        color: white;
+        font-weight: 500;
+        font-size: 20px;
+        border: none;
+    }
+    .sign:hover {
+        background: #118efc;
+    }
+    h1, .login, button, .remember {
+        margin-top: 15px;
+        margin-bottom: unset;
+    }
+    .years {
+        margin-top: 50px;
+        margin-bottom: auto;
+        color: #6A757C;
+        font-weight: 400;
+        font-size: 18px;
+    }
+}
