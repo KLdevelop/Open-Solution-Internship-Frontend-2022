@@ -5,11 +5,15 @@ import logo from './images/logo.svg';
 export const AuthPage: React.FC = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+  const [checked, setChecked] = useState(false);
   const onLoginChange = (e: ChangeEvent<HTMLInputElement>) => {
     setLogin(e.target.value);
   };
   const onPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
+  };
+  const onCheck: ReactEventHandler = () => {
+    setChecked(!checked);
   };
   const doAuth = () => {
     const fields = {
@@ -36,7 +40,7 @@ export const AuthPage: React.FC = () => {
       <input className={s.login} value={login} onChange={onLoginChange} />
       <input className={s.login} type="password" value={password} onChange={onPasswordChange} />
       <label className={s.remember}>
-        <input type="checkbox" />
+        <input type="checkbox" checked={checked} onChange={onCheck} />
         Remember me
       </label>
       <button type="button" className={s.sign} onClick={onSignClick}>
