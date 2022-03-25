@@ -11,6 +11,24 @@ export const AuthPage: React.FC = () => {
   const onPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
+  const doAuth = () => {
+    const fields = {
+      loginData: {
+        login,
+        password,
+      },
+    };
+    fetch('http://127.0.0.1:8080/authorize', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify(fields),
+    }).catch((error) => console.log(error));
+  };
+  const onSignClick: ReactEventHandler = () => {
+    doAuth();
+  };
   return (
     <div className={s.container}>
       <img src={logo} alt="" className={s.logo} />
@@ -21,7 +39,7 @@ export const AuthPage: React.FC = () => {
         <input type="checkbox" />
         Remember me
       </label>
-      <button type="button" className={s.sign}>
+      <button type="button" className={s.sign} onClick={onSignClick}>
         Sign in
       </button>
       <p className={s.years}>2020-2022</p>
