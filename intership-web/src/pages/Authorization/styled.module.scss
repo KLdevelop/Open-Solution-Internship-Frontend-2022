@@ -43,11 +43,23 @@
     .remember:hover, .remember input:hover {
         cursor: pointer;
     }
-    .sign {
-        background: #0085F9;
+    .error, .sign {
         width: 299px;
         height: 48px;
         border-radius: 5px;
+    }
+    .error {
+        background: #FDD7DA;
+        border: 1px solid #FCC6CB;
+        color: #911F35;
+        font-weight: 400;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sign {
+        background: #0085F9;
         color: white;
         font-weight: 500;
         font-size: 20px;
@@ -56,7 +68,7 @@
     .sign:hover {
         background: #118efc;
     }
-    h1, .login, button, .remember {
+    h1, .login, button, .remember, .error {
         margin-top: 15px;
         margin-bottom: unset;
     }
