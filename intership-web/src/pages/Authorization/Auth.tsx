@@ -1,4 +1,6 @@
 import React, { ChangeEvent, ReactEventHandler, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import s from './styled.module.scss';
 import logo from './images/logo.svg';
 
@@ -6,6 +8,8 @@ export const AuthPage: React.FC = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [checked, setChecked] = useState(false);
+  const [isFail, setIsFail] = useState(false);
+  const navigate = useNavigate();
   const onLoginChange = (e: ChangeEvent<HTMLInputElement>) => {
     setLogin(e.target.value);
   };
@@ -14,6 +18,12 @@ export const AuthPage: React.FC = () => {
   };
   const onCheck: ReactEventHandler = () => {
     setChecked(!checked);
+  };
+  const checkLogin = (isLogin: boolean) => {
+    setIsFail(!isLogin);
+    if (isLogin === true) {
+      navigate('/');
+    }
   };
   const doAuth = () => {
     const fields = {
@@ -28,7 +38,14 @@ export const AuthPage: React.FC = () => {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify(fields),
-    }).catch((error) => console.log(error));
+    })
+      .then((resp) =>
+        resp
+          .json()
+          .then((r: { isLogin: boolean }) => checkLogin(r.isLogin))
+          .catch((error) => console.log(error)),
+      )
+      .catch((error) => console.log(error));
   };
   const onSignClick: ReactEventHandler = () => {
     doAuth();
@@ -43,6 +60,7 @@ export const AuthPage: React.FC = () => {
         <input type="checkbox" checked={checked} onChange={onCheck} />
         Remember me
       </label>
+      {isFail && <div className={s.error}>login details error try again</div>}
       <button type="button" className={s.sign} onClick={onSignClick}>
         Sign in
       </button>
