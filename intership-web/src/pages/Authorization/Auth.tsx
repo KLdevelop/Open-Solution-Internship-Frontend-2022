@@ -51,12 +51,8 @@ export const AuthPage: React.FC = () => {
       },
       body: JSON.stringify(fields),
     })
-      .then((resp) =>
-        resp
-          .json()
-          .then((r: { isLogin: boolean }) => checkLogin(r.isLogin))
-          .catch((error) => console.log(error)),
-      )
+      .then((resp) => resp.json())
+      .then((r: { isLogin: boolean }) => checkLogin(r.isLogin))
       .catch((error) => console.log(error));
   };
 
