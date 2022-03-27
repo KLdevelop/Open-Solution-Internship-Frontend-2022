@@ -1,4 +1,4 @@
-export const SET_AUTH = 'SET_AUTH';
+import { SET_AUTH } from '../actions';
 
 interface LoginState {
   isLogin: boolean;
