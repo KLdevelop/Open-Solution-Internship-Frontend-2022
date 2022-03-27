@@ -1,7 +1,7 @@
 import React, { ChangeEvent, ReactEventHandler, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { SET_AUTH } from 'Src/store/reducers/authReducer';
+import { setAuth } from 'Src/store/actions';
 import s from './styled.module.scss';
 import logo from './images/logo.svg';
 
@@ -29,7 +29,7 @@ export const AuthPage: React.FC = () => {
     setIsFail(!isLogin);
     if (isLogin === true) {
       setIsFail(false);
-      dispatch({ type: SET_AUTH, payload: { isLogin, login } });
+      dispatch(setAuth(isLogin, login));
       if (checked) localStorage.setItem('authed', login);
       navigate('/');
     } else {
