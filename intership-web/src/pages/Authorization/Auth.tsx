@@ -1,6 +1,7 @@
 import React, { ChangeEvent, ReactEventHandler, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import { SET_AUTH } from 'Src/store/reducers/authReducer';
 import s from './styled.module.scss';
 import logo from './images/logo.svg';
 
@@ -10,21 +11,32 @@ export const AuthPage: React.FC = () => {
   const [checked, setChecked] = useState(false);
   const [isFail, setIsFail] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const onLoginChange = (e: ChangeEvent<HTMLInputElement>) => {
     setLogin(e.target.value);
   };
+
   const onPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
+
   const onCheck: ReactEventHandler = () => {
     setChecked(!checked);
   };
+
   const checkLogin = (isLogin: boolean) => {
     setIsFail(!isLogin);
     if (isLogin === true) {
+      setIsFail(false);
+      dispatch({ type: SET_AUTH, payload: { isLogin, login } });
+      if (checked) localStorage.setItem('authed', login);
       navigate('/');
+    } else {
+      setIsFail(true);
     }
   };
+
   const doAuth = () => {
     const fields = {
       loginData: {
@@ -47,9 +59,11 @@ export const AuthPage: React.FC = () => {
       )
       .catch((error) => console.log(error));
   };
+
   const onSignClick: ReactEventHandler = () => {
     doAuth();
   };
+
   return (
     <div className={s.container}>
       <img src={logo} alt="" className={s.logo} />
