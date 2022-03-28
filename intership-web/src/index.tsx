@@ -5,7 +5,7 @@ import './normalize.css';
 import './index.css';
 import './variables.scss';
 import { App } from './App';
-import { store } from './store';
+import store from './models/store';
 
 ReactDOM.render(
   <React.StrictMode>
