@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
-import { authReducer } from 'Src/models/reducers/authReducer';
+import { authReducer } from 'Src/models/reducers';
 import getUserSaga from './example/sagas';
 
 const saga = createSagaMiddleware();
