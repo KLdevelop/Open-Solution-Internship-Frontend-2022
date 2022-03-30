@@ -9,11 +9,24 @@ export const App: React.FC = () => {
   return (
     <div className={s.app}>
       <Router>
-        <CheckForAuth />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/counter" element={<CounterPage />} />
-          <Route path="/todos" element={<TodosPage />} />
+          <Route
+            path="/counter"
+            element={
+              <CheckForAuth>
+                <CounterPage />
+              </CheckForAuth>
+            }
+          />
+          <Route
+            path="/todos"
+            element={
+              <CheckForAuth>
+                <TodosPage />
+              </CheckForAuth>
+            }
+          />
           <Route path="/auth" element={<AuthPage />} />
         </Routes>
       </Router>
