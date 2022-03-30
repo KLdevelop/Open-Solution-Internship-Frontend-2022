@@ -25,8 +25,7 @@ export const AuthPage: React.FC = () => {
     setIsFail(!isLogin);
     if (isLogin === true) {
       setIsFail(false);
-      dispatch(setAuth({ isLogin, login: authData.login }));
-      if (checked) localStorage.setItem('authed', authData.login);
+      dispatch(setAuth({ isLogin, login: authData.login, remember: checked }));
       navigate('/');
     } else {
       setIsFail(true);
