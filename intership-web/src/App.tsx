@@ -1,7 +1,7 @@
 import React from 'react';
-import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Routes, BrowserRouter as Router, Navigate } from 'react-router-dom';
 
-import { HomePage, CounterPage, TodosPage, AuthPage } from 'Common/Pages';
+import { OrganizationsPage, AuthPage } from 'Common/Pages';
 import { CheckForAuth } from './components';
 import s from './App.module.scss';
 
@@ -10,20 +10,12 @@ export const App: React.FC = () => {
     <div className={s.app}>
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Navigate to="/organizations" />} />
           <Route
-            path="/counter"
+            path="/organizations"
             element={
               <CheckForAuth>
-                <CounterPage />
-              </CheckForAuth>
-            }
-          />
-          <Route
-            path="/todos"
-            element={
-              <CheckForAuth>
-                <TodosPage />
+                <OrganizationsPage />
               </CheckForAuth>
             }
           />
