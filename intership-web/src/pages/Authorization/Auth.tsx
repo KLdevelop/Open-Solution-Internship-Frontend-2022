@@ -1,9 +1,9 @@
-import React, { ChangeEvent, ReactEventHandler, useState } from 'react';
+import React, { ChangeEvent, ReactEventHandler, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { setAuth } from 'Src/models/actions';
 import { useAppDispatch } from 'Src/hooks';
+import logo from 'Src/assets/logo/logo.svg';
 import s from './styled.module.scss';
-import logo from './images/logo.svg';
 
 export const AuthPage: React.FC = () => {
   const [authData, setAuthData] = useState({ login: '', password: '' });
@@ -40,7 +40,7 @@ export const AuthPage: React.FC = () => {
       },
     };
     (async () => {
-      const resp = await fetch('http://127.0.0.1:8080/authorize', {
+      const resp = await fetch('/api/authorize', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
@@ -51,6 +51,10 @@ export const AuthPage: React.FC = () => {
       checkLogin(r.isLogin);
     })().catch(() => checkLogin(false));
   };
+
+  useEffect(() => {
+    document.title = 'Authorization';
+  }, []);
 
   return (
     <div className={s.container}>
