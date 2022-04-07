@@ -1,0 +1,17 @@
+<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <circle id="svg_1" fill="white" r="10" cy="10" cx="10"/>
+  <g id="svg_6">
+   <rect x="13.999993" y="9.999993" transform="matrix(0.666667, 0, 0, 0.666667, 0, 0)" id="svg_5" fill="#0085F9" height="10" width="2"/>
+  </g>
+  <g id="svg_11">
+   <rect y="5" id="svg_10" fill="#0085F9" transform="rotate(90, 10, 10) matrix(0.666667, 0, 0, 0.666667, 3.33333, 3.33333)" height="10" width="2" x="9.000001"/>
+  </g>
+ </g>
+</svg>
