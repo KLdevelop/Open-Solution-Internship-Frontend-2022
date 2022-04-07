@@ -23,13 +23,14 @@ module.exports = merge(
       static: {
         publicPath: '/',
       },
-      // proxy: {
-      //   '/api': {
-      //     target: process.env.BASE_API,
-      //     secure: false,
-      //     changeOrigin: true,
-      //   },
-      // },
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080',
+          pathRewrite: {'^/api': ''},
+          secure: false,
+          changeOrigin: true,
+        },
+      },
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
