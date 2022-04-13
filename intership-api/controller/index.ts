@@ -4,6 +4,9 @@ import { DbModel } from "../db/connect";
 
 export const Controller = {
   get: {
+    getIsWorking: async (req: Request, res: Response) => {
+      res.json({ status: 'working' });
+    },
     getOrganization: async (req: Request, res: Response) => {
       let allOrganization = await DbModel.getOganization();
       res.json(allOrganization);
@@ -52,7 +55,7 @@ export const Controller = {
         });
         console.log(name);
         if (callback) {
-          res.json({ success: true });
+          res.json({ success: true, id: callback[callback.length - 1].id });
         } else {
           res.json({ success: false });
         }
