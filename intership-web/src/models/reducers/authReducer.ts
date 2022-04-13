@@ -16,7 +16,8 @@ const initialState: LoginState = {
 export const authReducer = createReducer(initialState, (builder) => {
   builder.addCase(setAuth, (state, action) => {
     const { isLogin, login, remember } = action.payload;
-    if (remember) localStorage.setItem('authed', login);
+    if (remember && login !== null) localStorage.setItem('authed', login);
+    else localStorage.removeItem('authed');
     return { ...state, isLogin, login };
   });
 });
