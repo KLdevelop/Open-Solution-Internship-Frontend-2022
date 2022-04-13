@@ -3,6 +3,7 @@ import { Controller } from '../controller';
 
 const routes = express.Router();
 
+routes.get('/status', Controller.get.getIsWorking);
 routes.get('/organization', Controller.get.getOrganization);
 routes.get('/division', Controller.get.getDivisionById);
 routes.get('/employee', Controller.get.getEmployeeById);
