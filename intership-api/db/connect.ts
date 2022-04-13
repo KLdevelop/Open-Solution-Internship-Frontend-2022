@@ -28,7 +28,8 @@ export class DbModel {
   }
   private static async getId(type: string) {
     const esence = await db.get(type).value();
-    return esence.length + 1;
+    if (esence.length === 0) return 1;
+    return esence[esence.length - 1].id + 1;
   }
   public static async addOrganization(data: dbInterface.IOrganization) {
     const id = await this.getId('organization');
