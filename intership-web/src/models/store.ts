@@ -1,13 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
-import { authReducer, organizationsReducer } from 'Src/models/reducers';
-import rootSaga from './sagas';
+import { authReducer, organizationsReducer, inProcessReducer } from 'Src/models/reducers';
+import rootSaga from 'Src/models/sagas';
 
 const saga = createSagaMiddleware();
 const store = configureStore({
   reducer: {
     auth: authReducer,
     organizations: organizationsReducer,
+    inProcess: inProcessReducer,
   },
   middleware: [saga],
 });
