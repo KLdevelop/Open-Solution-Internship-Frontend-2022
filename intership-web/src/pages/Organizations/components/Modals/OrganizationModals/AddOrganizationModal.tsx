@@ -2,12 +2,14 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { useAppDispatch, useAppSelector } from 'Src/hooks';
 import { addToPostOrg, Organization } from 'Src/models/actions';
-import { ModalProps } from './ModalProps';
-import s from './modal.module.scss';
+import { ModalProps } from '../ModalProps';
+import { ModalError } from '../ModalError';
+import s from '../modal.module.scss';
 
-export const AddOrganizationModal: React.FC<ModalProps> = ({ isOpen, setIsOpen, contId }) => {
+export const AddOrganizationModal: React.FC<ModalProps> = ({ isOpen, setIsOpen }) => {
   const dispatch = useAppDispatch();
   const orgs = useAppSelector((state) => state.organizations.organizations);
+  const [error, setError] = useState(false);
   const [data, setData] = useState({
     name: '',
     address: '',
@@ -18,13 +20,21 @@ export const AddOrganizationModal: React.FC<ModalProps> = ({ isOpen, setIsOpen, 
     setData({ ...data });
   };
   const onAddClick = () => {
-    const id = orgs[orgs.length - 1].id + 1;
     const newOrg: Organization = {
-      id,
+      id: 111,
       name: data.name,
       address: data.address,
       INN: +data.INN,
     };
+    if (
+      newOrg.name === '' ||
+      newOrg.address === '' ||
+      newOrg.INN === 0 ||
+      Number.isNaN(newOrg.INN)
+    ) {
+      setError(true);
+      return;
+    }
     dispatch(addToPostOrg(newOrg));
     setIsOpen(false);
   };
@@ -32,13 +42,14 @@ export const AddOrganizationModal: React.FC<ModalProps> = ({ isOpen, setIsOpen, 
     setIsOpen(false);
   };
   useEffect(() => {
-    Modal.setAppElement(contId);
-  }, [contId]);
+    Modal.setAppElement('#root');
+  }, []);
   return (
     <Modal className={s.modal} overlayClassName={s.overlayModal} isOpen={isOpen}>
       <div className={s.modalTop}>
         <h1>Add Organization</h1>
       </div>
+      {error && <ModalError />}
       <div className={s.modalMid}>
         <div className={s.first}>
           <p>Organization Name</p>

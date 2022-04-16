@@ -1,3 +1,4 @@
-export { AddOrganizationModal } from './AddOrganizationModal';
-export { RedOrganizationModal } from './RedOrganizationModal';
+export { RedOrganizationModal, AddOrganizationModal } from './OrganizationModals';
+export { RedDivisionModal, AddDivisionModal } from './DivisionModals';
+export { RedEmployeeModal, AddEmployeeModal } from './EmployeeModals';
 export { AcceptModal } from './AcceptModal';

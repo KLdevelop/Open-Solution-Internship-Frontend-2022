@@ -4,10 +4,10 @@ import { ModalProps } from './ModalProps';
 import s from './modal.module.scss';
 
 interface Props extends ModalProps {
-  action: () => any;
+  action: () => void;
 }
 
-export const AcceptModal: React.FC<Props> = ({ isOpen, setIsOpen, contId, action }) => {
+export const AcceptModal: React.FC<Props> = ({ isOpen, setIsOpen, action }) => {
   const onNoClick = () => {
     setIsOpen(false);
   };
@@ -16,8 +16,8 @@ export const AcceptModal: React.FC<Props> = ({ isOpen, setIsOpen, contId, action
     setIsOpen(false);
   };
   useEffect(() => {
-    Modal.setAppElement(contId);
-  }, [contId]);
+    Modal.setAppElement('#root');
+  }, []);
   return (
     <Modal className={s.modal} overlayClassName={s.overlayModal} isOpen={isOpen}>
       <div className={s.modalTop}>
