@@ -1,23 +1,8 @@
 import { all, call } from 'redux-saga/effects';
-import {
-  watchAddToDelete,
-  watchDeleteOrganization,
-} from './organizationsSagas/sagaDeleteOrganization';
-import {
-  watchAddToEditOrg,
-  watchEditOrganization,
-} from './organizationsSagas/sagaEditOrganization';
-import { watchFetchOrganizations } from './organizationsSagas/sagaOrganizationsFetch';
-import { watchAddToPost, watchPostOrganization } from './organizationsSagas/sagaPostOrganization';
+import divisionsSaga from './divisionsSagas';
+import employeesSaga from './employeesSagas';
+import organizationsSaga from './organizationsSagas';
 
 export default function* rootSaga() {
-  yield all([
-    call(watchFetchOrganizations),
-    call(watchPostOrganization),
-    call(watchAddToPost),
-    call(watchDeleteOrganization),
-    call(watchAddToDelete),
-    call(watchEditOrganization),
-    call(watchAddToEditOrg),
-  ]);
+  yield all([call(organizationsSaga), call(divisionsSaga), call(employeesSaga)]);
 }

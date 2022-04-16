@@ -32,7 +32,7 @@ function* addToDeleteOrgWorker(arg) {
   yield put(deleteOrganization(id));
 }
 
-export function* watchAddToDelete() {
+export function* watchAddOrgToDelete() {
   yield takeEvery(addToDeleteOrg.toString(), addToDeleteOrgWorker);
 }
 
