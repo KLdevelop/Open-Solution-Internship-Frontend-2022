@@ -72,7 +72,7 @@ export const Controller = {
           id_organization: Number.parseInt(fields.id_organization, 10)
         });
         if (callback) {
-          res.json({ success: true });
+          res.json({ success: true, id: callback[callback.length - 1].id });
         }
       });
     },
@@ -85,7 +85,7 @@ export const Controller = {
           id_division: Number.parseInt(fields.id_division, 10)
         });
         if (callback) {
-          res.json({ success: true });
+          res.json({ success: true, id: callback[callback.length - 1].id });
         }
       });
     }
