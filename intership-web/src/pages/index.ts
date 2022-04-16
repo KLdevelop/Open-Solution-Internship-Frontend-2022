@@ -1,2 +1,2 @@
 export { AuthPage } from './Authorization';
-export { OrganizationsPage } from './Organizations';
+export { OrganizationsPage, DivisionsPage } from './Organizations';
