@@ -5,7 +5,7 @@ import {
   redOrganization,
   removeOrganization,
   setOrganizations,
-} from '../actions';
+} from 'Src/models/actions';
 
 const initialState: { organizations: Organization[]; isLoaded: boolean } = {
   organizations: [],

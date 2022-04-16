@@ -1,12 +1,12 @@
 import { createReducer } from '@reduxjs/toolkit';
 import {
-  decDeleteOrgProcesses,
-  decEditOrgProcesses,
-  decPostOrgProcesses,
-  incDeleteOrgProcesses,
-  incEditOrgProcesses,
-  incPostOrgProcesses,
-} from '../actions';
+  decDeleteEmpProcesses,
+  decEditEmpProcesses,
+  decPostEmpProcesses,
+  incDeleteEmpProcesses,
+  incEditEmpProcesses,
+  incPostEmpProcesses,
+} from 'Src/models/actions';
 
 const initialState = {
   postProcesses: 0,
@@ -15,22 +15,22 @@ const initialState = {
   deleteArr: new Array<number>(),
 };
 
-export const inProcessReducer = createReducer(initialState, (builder) => {
+export const empInProcessReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(incPostOrgProcesses, (state) => ({
+    .addCase(incPostEmpProcesses, (state) => ({
       ...state,
       postProcesses: state.postProcesses + 1,
     }))
-    .addCase(incDeleteOrgProcesses, (state, action) => ({
+    .addCase(incDeleteEmpProcesses, (state, action) => ({
       ...state,
       deleteProcesses: state.deleteProcesses + 1,
       deleteArr: [...state.deleteArr, action.payload],
     }))
-    .addCase(decPostOrgProcesses, (state) => ({
+    .addCase(decPostEmpProcesses, (state) => ({
       ...state,
       postProcesses: state.postProcesses - 1,
     }))
-    .addCase(decDeleteOrgProcesses, (state, action) => {
+    .addCase(decDeleteEmpProcesses, (state, action) => {
       const ind = state.deleteArr.indexOf(action.payload);
       return {
         ...state,
@@ -38,11 +38,11 @@ export const inProcessReducer = createReducer(initialState, (builder) => {
         deleteProcesses: state.deleteProcesses - 1,
       };
     })
-    .addCase(incEditOrgProcesses, (state) => ({
+    .addCase(incEditEmpProcesses, (state) => ({
       ...state,
       editProcesses: state.editProcesses + 1,
     }))
-    .addCase(decEditOrgProcesses, (state) => ({
+    .addCase(decEditEmpProcesses, (state) => ({
       ...state,
       editProcesses: state.editProcesses - 1,
     }));

@@ -1,3 +1,4 @@
 export { authReducer } from './authReducer';
-export { organizationsReducer } from './organizationsReducer';
-export { inProcessReducer } from './inProcessReducer';
+export { organizationsReducer, orgInProcessReducer } from './organizationsReducers';
+export { divisionsReducer, divInProcessReducer } from './divisionsReducers';
+export { employeesReducer, empInProcessReducer } from './employeesReducers';
