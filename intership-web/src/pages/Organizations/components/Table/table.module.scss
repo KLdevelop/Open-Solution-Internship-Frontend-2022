@@ -1,0 +1,47 @@
+.table, .empTable {
+    width: 1110px;
+    margin: 10px auto auto;
+    div {
+        display: grid;
+        grid-template-columns: 100px 240px 215px 290px 1fr;
+        height: 50px;
+        border-top: 1px solid #C4C4C4;;
+        padding-left: 15px;
+        p {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .actions {
+            overflow: unset;
+        }
+        button {
+            border: none;
+            background: white;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+            height: fit-content;
+            padding: unset;
+        }
+    }
+    .toDelete {
+        p {
+            color: #e20048;
+        }
+        img, button {
+            display: none;
+        }
+    }
+    .headtable {
+        p {
+            font-weight: 500;
+            font-size: 16px;
+        }
+    }
+}
+
+.empTable div {
+    grid-template-columns: 100px 100px 1fr 1fr 1fr 1fr;
+}
