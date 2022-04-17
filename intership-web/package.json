@@ -29,6 +29,7 @@
     }
   },
   "dependencies": {
+    "@deepdub/react-ok-tooltip": "^0.1.4",
     "@microsoft/signalr": "^6.0.3",
     "@reduxjs/toolkit": "^1.7.2",
     "axios": "^0.26.1",
