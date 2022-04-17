@@ -2,9 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'Src/hooks';
 import { addToDeleteEmp, fetchEmployees, Employee } from 'Src/models/actions';
-import { Header } from './components/Header';
-import { AddEmployeeModal, RedEmployeeModal, AcceptModal } from './components/Modals';
-import { Table } from './components/Table';
+import {
+  AddEmployeeModal,
+  RedEmployeeModal,
+  AcceptModal,
+  Header,
+  Table,
+  TrackProcesses,
+} from './components';
 import { arrowBack, addBttn } from './assets';
 import s from './style.module.scss';
 
@@ -80,13 +85,11 @@ export const EmployeesPage: React.FC = () => {
         onRedClick={onRedClick}
         onDeleteClick={onDeleteClick}
       />
-      {postProcesses + deleteProcesses + editProcesses > 0 && (
-        <div className={s.inProcess}>
-          {postProcesses > 0 && <p>{`Posting posts: ${postProcesses}`}</p>}
-          {deleteProcesses > 0 && <p>{`Deleting posts: ${deleteProcesses}`}</p>}
-          {editProcesses > 0 && <p>{`Editing posts: ${editProcesses}`}</p>}
-        </div>
-      )}
+      <TrackProcesses
+        postProcesses={postProcesses}
+        deleteProcesses={deleteProcesses}
+        editProcesses={editProcesses}
+      />
     </div>
   );
 };
