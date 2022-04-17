@@ -39,7 +39,7 @@ module.exports = [
   }),
   new MiniCssExtractPlugin(),
   new FaviconsWebpackPlugin({
-    logo: './src/assets/favicon/favicon.png',
+    logo: './src/assets/logo/logo.svg',
     prefix: 'favicons/',
     cache: true,
   }),
