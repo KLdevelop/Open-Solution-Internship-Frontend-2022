@@ -8,8 +8,8 @@ import {
   Header,
   Table,
   TrackProcesses,
+  HeadButtons,
 } from './components';
-import { arrowBack, addBttn } from './assets';
 import s from './style.module.scss';
 
 export const OrganizationsPage: React.FC = () => {
@@ -57,17 +57,8 @@ export const OrganizationsPage: React.FC = () => {
           action={deleteOrg}
         />
       )}
-      <Header />
-      <div className={s.buttons}>
-        <button type="button" className={s.back}>
-          <img src={arrowBack} alt="" />
-          Back
-        </button>
-        <button type="button" className={s.add} onClick={onAddClick}>
-          <img src={addBttn} alt="" />
-          Add Organization
-        </button>
-      </div>
+      <Header title="Organizations" next="Divisions" />
+      <HeadButtons onAddClick={onAddClick} addItem="Organization" />
       <Table
         tablehead={['id', 'name', 'address', 'INN', 'Actions']}
         tablelist={organizations}

@@ -9,8 +9,8 @@ import {
   Header,
   Table,
   TrackProcesses,
+  HeadButtons,
 } from './components';
-import { arrowBack, addBttn } from './assets';
 import s from './style.module.scss';
 
 export const EmployeesPage: React.FC = () => {
@@ -67,17 +67,8 @@ export const EmployeesPage: React.FC = () => {
           action={deleteOrg}
         />
       )}
-      <Header />
-      <div className={s.buttons}>
-        <button type="button" className={s.back} onClick={onBackClick}>
-          <img src={arrowBack} alt="" />
-          Back
-        </button>
-        <button type="button" className={s.add} onClick={onAddClick}>
-          <img src={addBttn} alt="" />
-          Add Employee
-        </button>
-      </div>
+      <Header past="Divisions" title="Employees" />
+      <HeadButtons onAddClick={onAddClick} onBackClick={onBackClick} addItem="Employee" />
       <Table
         tablehead={['id', 'id_division', 'FIO', 'address', 'position', 'Actions']}
         tablelist={employees}
