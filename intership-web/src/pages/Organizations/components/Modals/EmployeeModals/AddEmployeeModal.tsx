@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import { useAppDispatch, useAppSelector } from 'Src/hooks';
+import { useAppDispatch } from 'Src/hooks';
 import { addToPostEmp, Employee } from 'Src/models/actions';
 import { ModalProps } from '../ModalProps';
 import s from '../modal.module.scss';
@@ -12,7 +12,6 @@ interface Props extends ModalProps {
 
 export const AddEmployeeModal: React.FC<Props> = ({ isOpen, setIsOpen, idDivision }) => {
   const dispatch = useAppDispatch();
-  const emps = useAppSelector((state) => state.employees.employees);
   const [error, setError] = useState(false);
   const [data, setData] = useState({
     FIO: '',

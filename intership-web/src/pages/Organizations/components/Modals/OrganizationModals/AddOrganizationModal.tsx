@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import { useAppDispatch, useAppSelector } from 'Src/hooks';
+import { useAppDispatch } from 'Src/hooks';
 import { addToPostOrg, Organization } from 'Src/models/actions';
 import { ModalProps } from '../ModalProps';
 import { ModalError } from '../ModalError';
@@ -8,7 +8,6 @@ import s from '../modal.module.scss';
 
 export const AddOrganizationModal: React.FC<ModalProps> = ({ isOpen, setIsOpen }) => {
   const dispatch = useAppDispatch();
-  const orgs = useAppSelector((state) => state.organizations.organizations);
   const [error, setError] = useState(false);
   const [data, setData] = useState({
     name: '',

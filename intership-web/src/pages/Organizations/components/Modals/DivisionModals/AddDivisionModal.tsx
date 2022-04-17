@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import { useAppDispatch, useAppSelector } from 'Src/hooks';
+import { useAppDispatch } from 'Src/hooks';
 import { addToPostDiv, Division } from 'Src/models/actions';
 import { ModalProps } from '../ModalProps';
 import s from '../modal.module.scss';
@@ -12,7 +12,6 @@ interface Props extends ModalProps {
 
 export const AddDivisionModal: React.FC<Props> = ({ isOpen, setIsOpen, idOrganization }) => {
   const dispatch = useAppDispatch();
-  const divs = useAppSelector((state) => state.divisions.divisions);
   const [error, setError] = useState(false);
   const [data, setData] = useState({
     name: '',
