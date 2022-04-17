@@ -10,3 +10,4 @@ export {
 } from './Modals';
 export { Table } from './Table';
 export { TrackProcesses } from './TrackProcesses';
+export { HeadButtons } from './HeadButtons';
