@@ -1,0 +1,31 @@
+.buttons {
+    width: 1110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px auto auto;
+    .back, .add {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #0085F9;
+        border-radius: 5px;
+        color: white;
+        font-weight: 400;
+        font-size: 16px;
+        border: none;
+        height: 38px;
+        img {
+            margin-right: 2px;
+        }
+    }
+    .back:hover, .add:hover {
+        background: #0079e2;
+    }
+    .back {
+        width: 87px;
+    }
+    .add {
+        width: 174px;
+    }
+}
